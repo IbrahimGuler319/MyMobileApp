@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "649709513549",
+    "project_id": "mymobileapp-79d88",
+    "storage_bucket": "mymobileapp-79d88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649709513549:android:23ce717babb913e1d5e504",
+        "android_client_info": {
+          "package_name": "msku.ceng.madlab.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEPIucM_6DqyDqNx6eRr2l2Bm9dm4IRa8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
