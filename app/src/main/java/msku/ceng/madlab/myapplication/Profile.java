@@ -17,13 +17,7 @@ import msku.ceng.madlab.myapplication.R;
 
 public class Profile extends AppCompatActivity {
 
-    private TextView usernameTextView;
-    private TextView ageTextView;
-    private TextView genderTextView;
-    private TextView handTextView;
-    private TextView footTextView;
-    private TextView emailTextView;
-
+    private TextView textViewUsername, textViewEmail, textViewPassword;
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
 
@@ -32,40 +26,36 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        // TextView'lere erişim tanımlamalarını yap
-        usernameTextView = findViewById(R.id.usernameTextView);
-        ageTextView = findViewById(R.id.ageTextView);
-        genderTextView = findViewById(R.id.genderTextView);
-        handTextView = findViewById(R.id.handTextView);
-        footTextView = findViewById(R.id.footTextView);
-        emailTextView = findViewById(R.id.emailTextView);
+        textViewUsername = findViewById(R.id.textViewUsername);
+        textViewEmail = findViewById(R.id.textViewEmail);
+        textViewPassword = findViewById(R.id.textViewPassword);
 
-        // Firestore ve kullanıcı referanslarını al
-        db = FirebaseFirestore.getInstance();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        // Kullanıcı verilerini almak için Firestore'dan belirli bir belgeyi al
         if (currentUser != null) {
-            String userId = currentUser.getUid();
-            db.collection("users").document(userId).get()
+            db = FirebaseFirestore.getInstance();
+            db.collection("users")
+                    .document(currentUser.getUid())
+                    .get()
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
-                            // Kullanıcı verilerini belgeden al
                             String username = documentSnapshot.getString("Username");
-                            String email = currentUser.getEmail();
+                            String email = documentSnapshot.getString("Email");
+                            String password = documentSnapshot.getString("Password");
 
-                            // TextView'lere verileri yerleştir
-                            usernameTextView.setText("Username: " + username);
-                            emailTextView.setText("Email: " + email);
+                            textViewUsername.setText("Username: " + username);
+                            textViewEmail.setText("Email: " + email);
+                            textViewPassword.setText("Password: " + password);
                         } else {
-                            // Belge bulunamadı
-                            Toast.makeText(Profile.this, "Document does not exist", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Profile.this, "User data does not exist", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(e -> {
-                        // Hata durumunda kullanıcıya bildir
-                        Toast.makeText(Profile.this, "Failed to retrieve document: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Profile.this, "Failed to retrieve user data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.e("ProfileActivity", "Failed to retrieve user data", e);
                     });
+        } else {
+            Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show();
         }
     }
 }

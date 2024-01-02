@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -62,39 +63,41 @@ public class Register extends AppCompatActivity {
                 } else if (!txtPassword.equals(txtPassword2)) {
                     Toast.makeText(Register.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Firestore'a kullanıcı bilgilerini ekleme
-                    db = FirebaseFirestore.getInstance();
-                    Map<String, Object> user = new HashMap<>();
-                    user.put("Username", txtUsername);
-                    user.put("Email", txtEmail);
-                    user.put("Password", txtPassword);
+                    mAuth.createUserWithEmailAndPassword(txtEmail, txtPassword)
+                            .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        FirebaseUser currentUser = mAuth.getCurrentUser();
+                                        if (currentUser != null) {
+                                            db = FirebaseFirestore.getInstance();
+                                            Map<String, Object> user = new HashMap<>();
+                                            user.put("Username", txtUsername);
+                                            user.put("Email", txtEmail);
+                                            user.put("Password", txtPassword);
 
-                    db.collection("users")
-                            .add(user)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    // Firestore'a başarıyla eklendikten sonra Firebase Authentication'a kayıt yap
-                                    mAuth.createUserWithEmailAndPassword(txtEmail, txtPassword)
-                                            .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                                    if (task.isSuccessful()) {
-                                                        Toast.makeText(Register.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(Register.this, MainActivity.class);
-                                                        startActivity(intent);
-                                                        finish();
-                                                    } else {
-                                                        Toast.makeText(Register.this, "Authentication failed." + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                                    }
-                                                }
-                                            });
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(Register.this, "Failed to register. " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                            db.collection("users")
+                                                    .document(currentUser.getUid())
+                                                    .set(user)
+                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+                                                            Toast.makeText(Register.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                                                            Intent intent = new Intent(Register.this, MainActivity.class);
+                                                            startActivity(intent);
+                                                            finish();
+                                                        }
+                                                    })
+                                                    .addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
+                                                            Toast.makeText(Register.this, "Failed to register. " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    });
+                                        }
+                                    } else {
+                                        Toast.makeText(Register.this, "Authentication failed." + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             });
                 }
