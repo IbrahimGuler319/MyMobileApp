@@ -57,8 +57,8 @@ public class Register extends AppCompatActivity {
                 txtPassword = editPassword.getText().toString();
                 txtPassword2 = editPassword2.getText().toString();
 
-                if (TextUtils.isEmpty(txtEmail) || TextUtils.isEmpty(txtUsername) ||
-                        TextUtils.isEmpty(txtPassword) || TextUtils.isEmpty(txtPassword2)) {
+                if (TextUtils.isEmpty(txtEmail) && TextUtils.isEmpty(txtUsername) &&
+                        TextUtils.isEmpty(txtPassword) && TextUtils.isEmpty(txtPassword2)) {
                     Toast.makeText(Register.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 } else if (!txtPassword.equals(txtPassword2)) {
                     Toast.makeText(Register.this, "Passwords do not match", Toast.LENGTH_SHORT).show();

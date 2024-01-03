@@ -20,7 +20,7 @@ import msku.ceng.madlab.myapplication.R;
 public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap gMap;
-    private Button btnProfile;
+    private Button btnProfile,btnMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,14 @@ public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
                 startActivity(intent);
             }
         });
-
+        btnMessage = findViewById(R.id.btnMessage);
+        btnMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainMap.this, Message.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
