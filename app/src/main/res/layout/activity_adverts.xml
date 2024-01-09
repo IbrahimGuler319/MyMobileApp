@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="#1B5D71">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/advertsMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:text="Adverts Menu"
+            android:gravity="center_vertical"
+            android:textColor="#E8E6D7" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/givingAdvert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="#1B5D71"
+        android:backgroundTint="#1B5D71"
+        android:text="Give an advert"
+        android:textAlignment="textStart"
+        app:backgroundTint="#1B5D71"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/lookingAdvert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="#1B5D71"
+        android:text="Look for an advert"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#1B5D71"/>
+
+    <Button
+        android:id="@+id/yourAdverts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="#1B5D71"
+        android:text="Your adverts"
+        android:textAlignment="textStart"
+        app:backgroundTint="#1B5D71"/>
+
+    <Button
+        android:id="@+id/referencedAdverts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Referenced Adverts"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="textStart"
+        android:background="#1B5D71"
+        app:backgroundTint="#1B5D71"/>
+</LinearLayout>
