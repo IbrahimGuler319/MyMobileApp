@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_exit"
+        android:title="Exit"
+        android:icon="@drawable/ic_exit" />
+    <item
+        android:id="@+id/action_advert"
+        android:title="Advert"
+        android:icon="@drawable/ic_advert" />
+    <item
+        android:id="@+id/action_message"
+        android:title="Message"
+        android:icon="@drawable/ic_message" />
+    <item
+        android:id="@+id/action_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile" />
+</menu>
