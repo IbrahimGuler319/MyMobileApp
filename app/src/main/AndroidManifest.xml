@@ -23,8 +23,11 @@
         <activity
             android:name=".Profile"
             android:exported="false" />
-        <activity
+        <!--<activity
             android:name=".EditProfile"
+            android:exported="false" />-->
+        <activity
+            android:name=".Adverts"
             android:exported="false" />
         <activity
             android:name=".MainMap"
