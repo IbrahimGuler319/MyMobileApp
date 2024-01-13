@@ -2,20 +2,20 @@ package msku.ceng.madlab.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
     private Button btnSignUp, btnLogin;
     private EditText editEmail, editPassword;
     private String txtEmail, txtPassword;
@@ -46,16 +46,17 @@ public class MainActivity extends AppCompatActivity {
                             .addOnCompleteListener(MainActivity.this, task -> {
                                 if (task.isSuccessful()) {
                                     mUser = mAuth.getCurrentUser();
-
                                     if (mUser != null) {
+                                        Log.d(TAG, "Login successful");
                                         Toast.makeText(MainActivity.this, "Logged in successfully!", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(MainActivity.this, MainMap.class);
                                         startActivity(intent);
-                                        finish();
                                     } else {
+                                        Log.e(TAG, "User authentication failed!");
                                         Toast.makeText(MainActivity.this, "User authentication failed!", Toast.LENGTH_SHORT).show();
                                     }
                                 } else {
+                                    Log.e(TAG, "Authentication failed: " + task.getException());
                                     Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                                 }
                             });
@@ -74,4 +75,3 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
-
