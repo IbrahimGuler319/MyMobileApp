@@ -14,13 +14,11 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import msku.ceng.madlab.myapplication.R;
 
 public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
-
-    private GoogleMap gMap;
-    private Button btnProfile,btnMessage,btnAdvert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,33 +27,28 @@ public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.id_map);
         mapFragment.getMapAsync(this);
-        btnProfile = findViewById(R.id.btnProfile);
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainMap.this, Profile.class);
-                startActivity(intent);
-            }
-        });
-        btnMessage = findViewById(R.id.btnMessage);
-        btnMessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainMap.this, Message.class);
-                startActivity(intent);
-            }
-        });
 
-        btnAdvert = findViewById(R.id.btnAdvert);
-        btnAdvert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainMap.this, Adverts.class);
-                startActivity(intent);
+        BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigation);
+        bottomNavigation.setOnNavigationItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.action_home) {
+                // Handle the Home button click (optional: check if it's not already in MainMap)
+                startActivity(new Intent(MainMap.this, MainMap.class));
+                return true;
+            } else if (itemId == R.id.action_profile) {
+                startActivity(new Intent(MainMap.this, Profile.class));
+                return true;
+            } else if (itemId == R.id.action_message) {
+                startActivity(new Intent(MainMap.this, Message.class));
+                return true;
+            } else if (itemId == R.id.action_advert) {
+                startActivity(new Intent(MainMap.this, Adverts.class));
+                return true;
+            } else {
+                return false;
             }
         });
     }
-
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         LatLng location = new LatLng(55.6761, 12.5683);
