@@ -3,4 +3,5 @@
     <drawable name="ic_profile" />
     <drawable name="ic_advert" />
     <drawable name="ic_home" />
+    <drawable name="ic_back" />
 </resources>
