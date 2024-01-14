@@ -1,5 +1,6 @@
 package msku.ceng.madlab.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -7,16 +8,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import msku.ceng.madlab.myapplication.R;
 
-// ... (diğer importlar)
 
 public class Profile extends AppCompatActivity {
 
+    private BottomNavigationView bottomNavigation;
     private TextView textViewUsername, textViewEmail, textViewPassword;
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
@@ -57,5 +59,26 @@ public class Profile extends AppCompatActivity {
         } else {
             Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show();
         }
+        bottomNavigation = findViewById(R.id.bottomNavigation);
+        bottomNavigation.setOnNavigationItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.action_profile) {
+                // Bu sayfa zaten Profile, başka bir aktiviteye geçmeye gerek yok.
+                return true;
+            } else if (itemId == R.id.action_message) {
+                startActivity(new Intent(Profile.this, Message.class));
+                return true;
+            } else if (itemId == R.id.action_advert) {
+                startActivity(new Intent(Profile.this, Adverts.class));
+                return true;
+            } else if (itemId == R.id.action_exit) {
+                // Handle exit action
+                finish();
+                return true;
+            } else {
+                return false;
+            }
+        });
     }
 }
