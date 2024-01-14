@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="fragment_container" type="id" />
-    <item name="action_profile" type="id" />
-    <item name="bottom_navigation" type="id" />
-    <item name="action_message" type="id" />
-    <item name="action_advert" type="id" />
-</resources>
