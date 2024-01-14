@@ -5,7 +5,4 @@
     <item name="bottom_navigation" type="id" />
     <item name="action_message" type="id" />
     <item name="action_advert" type="id" />
-    <item name="navigation_profile" type="id" />
-    <item name="navigation_messages" type="id" />
-    <item name="navigation_adverts" type="id" />
 </resources>

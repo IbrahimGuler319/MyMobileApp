@@ -1,11 +1,12 @@
 package msku.ceng.madlab.myapplication;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,6 +15,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import msku.ceng.madlab.myapplication.R;
 
 public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -28,30 +31,24 @@ public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
         BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.setOnNavigationItemSelectedListener(item -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.action_home) {
-                // Handle the Home button click (optional: check if it's not already in MainMap)
-                return true;
-            } else if (itemId == R.id.action_profile) {
+            if (itemId == R.id.action_profile) {
                 startActivity(new Intent(MainMap.this, Profile.class));
-                finish(); // Bu aktiviteyi kapatın, isteğe bağlı
                 return true;
             } else if (itemId == R.id.action_message) {
                 startActivity(new Intent(MainMap.this, Message.class));
-                finish(); // Bu aktiviteyi kapatın, isteğe bağlı
                 return true;
             } else if (itemId == R.id.action_advert) {
                 startActivity(new Intent(MainMap.this, Adverts.class));
-                finish(); // Bu aktiviteyi kapatın, isteğe bağlı
                 return true;
+            } else {
+                return false;
             }
-            return false;
         });
     }
-
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        LatLng markerLocation = new LatLng(37.7749, -122.4194); // Örnek bir konum
-        googleMap.addMarker(new MarkerOptions().position(markerLocation).title("Marker in San Francisco"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(markerLocation));
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        LatLng location = new LatLng(55.6761, 12.5683);
+        googleMap.addMarker(new MarkerOptions().position(location).title("Copenhagen"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 12));
     }
 }
