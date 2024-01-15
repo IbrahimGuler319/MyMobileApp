@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="74dp"
         android:text="REGISTER"
@@ -23,9 +23,9 @@
     <EditText
         android:id="@+id/editTextUsername"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="USERNAME"
@@ -36,16 +36,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/editTextName"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
-        android:hint="EMAİL"
+        android:hint="NAME"
         android:textColorHint="#959595"
         android:inputType="text"
         android:textColor="#FFFFFF"
@@ -53,11 +52,60 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
+    <EditText
+        android:id="@+id/editTextSurname"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:hint="SURNAME"
+        android:textColorHint="#959595"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+    <EditText
+        android:id="@+id/editTextAge"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:hint="AGE"
+        android:textColorHint="#959595"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSurname" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:hint="EMAIL"
+        android:textColorHint="#959595"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
@@ -74,7 +122,7 @@
     <EditText
         android:id="@+id/editTextCPassword"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
@@ -87,6 +135,182 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+    <!-- Hand Seçenekleri -->
+    <TextView
+        android:id="@+id/textViewHandLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hand prefer: "
+        android:textColor="#FFFFFF"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCPassword" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupHand"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewHandLabel"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCPassword">
+
+        <RadioButton
+            android:id="@+id/radioButtonLeftHand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Left"
+            android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/radioButtonRightHand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Right"
+            android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/radioButtonBothHand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Both"
+            android:textColor="#FFFFFF" />
+    </RadioGroup>
+
+    <!-- Foot Seçenekleri -->
+    <TextView
+        android:id="@+id/textViewFootLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Foot prefer: "
+        android:textColor="#FFFFFF"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupHand" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupFoot"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewFootLabel"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupHand">
+
+        <RadioButton
+            android:id="@+id/radioButtonLeftFoot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Left"
+            android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/radioButtonRightFoot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Right"
+            android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/radioButtonBothFoot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Both"
+            android:textColor="#FFFFFF" />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/textViewSportLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Which sports do you play?"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupFoot" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSportLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <CheckBox
+            android:id="@+id/checkBoxFootball"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="12dp"
+            android:text="Football"
+            android:textColor="#FFFFFF" />
+
+        <CheckBox
+            android:id="@+id/checkBoxBasketball"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="12dp"
+            android:text="Basketball"
+            android:textColor="#FFFFFF" />
+
+        <CheckBox
+            android:id="@+id/checkBoxVolleyball"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="12dp"
+            android:text="Volleyball"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="-15dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <CheckBox
+            android:id="@+id/checkBoxGolf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="12dp"
+            android:text="Golf"
+            android:textColor="#FFFFFF" />
+
+        <CheckBox
+            android:id="@+id/checkBoxBadminton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="12dp"
+            android:text="Badminton"
+            android:textColor="#FFFFFF" />
+
+        <CheckBox
+            android:id="@+id/checkBoxTennis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="12dp"
+            android:text="Tennis"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/Registerbtn"
