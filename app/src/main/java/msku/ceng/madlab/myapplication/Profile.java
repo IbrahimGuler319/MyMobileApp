@@ -26,7 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
+// This class implemented by Baran İşçi 200709054
 public class Profile extends AppCompatActivity {
 
     private Button btnEditProfile;
@@ -60,14 +60,14 @@ public class Profile extends AppCompatActivity {
                             String username = documentSnapshot.getString("Username");
                             String name = documentSnapshot.getString("Name");
                             String surname = documentSnapshot.getString("Surname");
-                            String age = documentSnapshot.getString("Age");
+                            String location = documentSnapshot.getString("Location");
                             String handPreference = documentSnapshot.getString("HandPreference");
                             String footPreference = documentSnapshot.getString("FootPreference");
                             userSports = (ArrayList<String>) documentSnapshot.get("Sports");
                             editUsername.setText(username);
                             editName.setText(name);
                             editSurname.setText(surname);
-                            editAge.setText(age);
+                            editAge.setText(location);
                             setRadioGroupSelection(handPrefer, handPreference);
                             setRadioGroupSelection(footPrefer, footPreference);
                             if (userSports != null) {
@@ -118,7 +118,7 @@ public class Profile extends AppCompatActivity {
 
     }
     private void setCheckBoxes(ArrayList<String> userSports) {
-        // XML'deki checkbox ID'leri
+
         int[] checkBoxIds = {
                 R.id.checkBoxFootball,
                 R.id.checkBoxBasketball,
@@ -130,7 +130,7 @@ public class Profile extends AppCompatActivity {
 
         for (int i = 0; i < checkBoxIds.length; i++) {
             CheckBox checkBox = findViewById(checkBoxIds[i]);
-            // Kullanıcının "Sports" dizisinde bulunan sporlara göre checkbox'ları işaretle
+
             if (userSports.contains(checkBox.getText().toString())) {
                 checkBox.setChecked(true);
             }
@@ -148,12 +148,12 @@ public class Profile extends AppCompatActivity {
                 case "Both":
                     radioGroup.check(radioGroup.getId() == R.id.radioGroupHand ? R.id.radioButtonBothHand : R.id.radioButtonBothFoot);
                     break;
-                // Varsayılan olarak hiçbir şey işaretlenmemiş olacak
+
             }
         }
     }
     private void updateUserData() {
-        // Kullanıcının girdiği yeni verileri al
+
         String newUsername = editUsername.getText().toString();
         String newName = editName.getText().toString();
         String newSurname = editSurname.getText().toString();
@@ -180,12 +180,11 @@ public class Profile extends AppCompatActivity {
             }
         }
 
-        // Yeni verileri Firestore'a güncelle
         Map<String, Object> userUpdates = new HashMap<>();
         userUpdates.put("Username", newUsername);
         userUpdates.put("Name", newName);
         userUpdates.put("Surname", newSurname);
-        userUpdates.put("Age", newAge);
+        userUpdates.put("Location", newAge);
         userUpdates.put("HandPreference", stringHand);
         userUpdates.put("FootPreference", stringFoot);
         userUpdates.put("Sports", newSelectedSports);
@@ -196,9 +195,9 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            // Başarılı güncelleme
+
                         } else {
-                            // Güncelleme hatası
+
                         }
                     }
                 });

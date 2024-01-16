@@ -31,7 +31,7 @@ import java.util.Map;
 import msku.ceng.madlab.myapplication.MainActivity;
 import msku.ceng.madlab.myapplication.MainMap;
 import msku.ceng.madlab.myapplication.R;
-
+// This class implemented by İbrahim Güler 200709065
 public class Register extends AppCompatActivity {
 
     private Button btnRegister;
@@ -70,9 +70,8 @@ public class Register extends AppCompatActivity {
                 txtAge = editAge.getText().toString();
                 txtPassword = editPassword.getText().toString();
                 txtPassword2 = editPassword2.getText().toString();
-                selectedSports.clear(); // Yeni eklenen satır
+                selectedSports.clear();
 
-                // Checkbox'ları kontrol et ve işaretlenenleri listeye ekle
                 CheckBox checkBoxFootball = findViewById(R.id.checkBoxFootball);
                 if (checkBoxFootball.isChecked()) {
                     selectedSports.add(checkBoxFootball.getText().toString());
@@ -116,21 +115,21 @@ public class Register extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         FirebaseUser currentUser = mAuth.getCurrentUser();
                                         if (currentUser != null) {
-                                            // Seçilen hand preference'ı al
+
                                             int selectedHandId = handPrefer.getCheckedRadioButtonId();
                                             if (selectedHandId != -1) {
                                                 RadioButton selectedHandRadioButton = findViewById(selectedHandId);
                                                 selectedHand = selectedHandRadioButton.getText().toString();
                                             }
 
-                                            // Seçilen foot preference'ı al
+
                                             int selectedFootId = footPrefer.getCheckedRadioButtonId();
                                             if (selectedFootId != -1) {
                                                 RadioButton selectedFootRadioButton = findViewById(selectedFootId);
                                                 selectedFoot = selectedFootRadioButton.getText().toString();
                                             }
 
-                                            // Firestore'a ekle
+
                                             db = FirebaseFirestore.getInstance();
                                             Map<String, Object> user = new HashMap<>();
                                             user.put("Username", txtUsername);
@@ -139,9 +138,9 @@ public class Register extends AppCompatActivity {
                                             user.put("Surname", txtSurname);
                                             user.put("Location", txtAge);
                                             user.put("Password", txtPassword);
-                                            user.put("HandPreference", selectedHand); // Hand preference'ı ekle
-                                            user.put("FootPreference", selectedFoot); // Foot preference'ı ekle
-                                            user.put("Sports", selectedSports); // Sports attribute'ını ekle
+                                            user.put("HandPreference", selectedHand);
+                                            user.put("FootPreference", selectedFoot);
+                                            user.put("Sports", selectedSports);
 
                                             db.collection("users")
                                                     .document(currentUser.getUid())

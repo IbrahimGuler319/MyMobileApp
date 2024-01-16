@@ -16,7 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
+// This class implemented by Baran İşci 200709054
 public class GivingAdvertActivity extends AppCompatActivity {
 
     private EditText editTextAdvertContent, editTextTime, editTextAddress;
@@ -52,32 +52,32 @@ public class GivingAdvertActivity extends AppCompatActivity {
         String address = editTextAddress.getText().toString();
 
         if (!content.isEmpty() && !time.isEmpty() && !address.isEmpty() && currentUser != null) {
-            // Firestore'dan otomatik olarak oluşturulan random ID
+
             String advertId = db.collection("adverts").document().getId();
 
-            // Kullanıcının Username bilgisini Firestore'dan al
+
             FirebaseFirestore.getInstance()
                     .collection("users")
                     .document(currentUser.getUid())
                     .get()
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
-                            // Firestore'dan Username bilgisini al
+
                             String username = documentSnapshot.getString("Username");
 
-                            // Yeni bir ArrayList oluştur
-                            ArrayList<String> comments = new ArrayList<>();
 
-                            // İlan veritabanına ekleniyor
+                            ArrayList<String> comments = new ArrayList<>();
+                            comments.add("Comments \n");
+
                             Map<String, Object> advertData = new HashMap<>();
-                            advertData.put("ID", advertId);  // Oluşturulan random ID'yi ilana ekle
+                            advertData.put("ID", advertId);
                             advertData.put("Owner", username);
                             advertData.put("Content", content);
                             advertData.put("Time", time);
                             advertData.put("Address", address);
                             advertData.put("Comments", comments);
 
-                            // İlan veritabanına ekleniyor
+
                             db.collection("adverts")
                                     .document(advertId)  // Oluşturulan random ID'yi belge kimliği olarak kullan
                                     .set(advertData)
