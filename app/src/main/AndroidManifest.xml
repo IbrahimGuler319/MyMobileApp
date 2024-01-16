@@ -46,6 +46,9 @@
             android:name=".GivingAdvertActivity"
             android:exported="false" />
         <activity
+            android:name=".LookingAdvertsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
