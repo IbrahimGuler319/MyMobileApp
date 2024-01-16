@@ -114,6 +114,7 @@ public class Profile extends AppCompatActivity {
                 return false;
             }
         });
+        bottomNavigation.setSelectedItemId(R.id.action_profile);
 
     }
     private void setCheckBoxes(ArrayList<String> userSports) {

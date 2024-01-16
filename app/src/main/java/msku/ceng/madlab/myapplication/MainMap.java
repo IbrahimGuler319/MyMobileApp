@@ -54,7 +54,7 @@ public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
                 startActivity(new Intent(MainMap.this, Profile.class));
                 return true;
             } else if (itemId == R.id.action_home) {
-                startActivity(new Intent(MainMap.this, MainMap.class));
+
                 return true;
             } else if (itemId == R.id.action_advert) {
                 startActivity(new Intent(MainMap.this, Adverts.class));
@@ -67,6 +67,7 @@ public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
                 return false;
             }
         });
+        bottomNavigation.setSelectedItemId(R.id.action_home);
 
     }
 

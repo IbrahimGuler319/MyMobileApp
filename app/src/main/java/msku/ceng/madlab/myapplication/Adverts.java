@@ -16,7 +16,7 @@ public class Adverts extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigation;
     private TextView advertsMenu;
-    private Button givingAdvert, lookingAdvert, yourAdverts, referencedAdverts;
+    private Button givingAdvert, lookingAdvert;
     private LinearLayout topBar;
 
     @Override
@@ -51,7 +51,6 @@ public class Adverts extends AppCompatActivity {
                 startActivity(new Intent(Adverts.this, MainMap.class));
                 return true;
             } else if (itemId == R.id.action_advert) {
-                // Bu sayfa zaten Adverts, başka bir aktiviteye geçmeye gerek yok.
                 return true;
             } else if (itemId == R.id.action_exit) {
                 // Handle exit action
@@ -61,5 +60,6 @@ public class Adverts extends AppCompatActivity {
                 return false;
             }
         });
+        bottomNavigation.setSelectedItemId(R.id.action_advert);
     }
 }

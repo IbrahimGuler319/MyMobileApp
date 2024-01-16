@@ -1,5 +1,6 @@
 package msku.ceng.madlab.myapplication;// LookingAdvertsActivity.java
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -19,6 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class LookingAdvertsActivity extends AppCompatActivity {
+
+    private BottomNavigationView bottomNavigation;
     private ListView listViewAdverts;
     private AdvertAdapter advertAdapter;
     private FirebaseFirestore db;
@@ -33,6 +37,30 @@ public class LookingAdvertsActivity extends AppCompatActivity {
 
         // Firebase'den verileri çek ve AdvertAdapter'a ilet
         fetchAdverts();
+
+
+        bottomNavigation = findViewById(R.id.bottomNavigation);
+        bottomNavigation.setOnNavigationItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.action_profile) {
+                startActivity(new Intent(LookingAdvertsActivity.this, Profile.class));
+                return true;
+            } else if (itemId == R.id.action_home) {
+                startActivity(new Intent(LookingAdvertsActivity.this, MainMap.class));
+                return true;
+            } else if (itemId == R.id.action_advert) {
+
+                return true;
+            } else if (itemId == R.id.action_exit) {
+                // Handle exit action
+                finish();
+                return true;
+            } else {
+                return false;
+            }
+        });
+        bottomNavigation.setSelectedItemId(R.id.action_advert);
     }
 
     private void fetchAdverts() {
