@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+// Thiss class implemented by İbrahim Güler 200709065
 public class Adverts extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigation;

@@ -23,6 +23,7 @@ import java.util.HashMap;
 
 import msku.ceng.madlab.myapplication.R;
 
+// This class implemented by İbrahim Güler 200709065
 public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap gMap;

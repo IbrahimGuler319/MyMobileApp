@@ -19,7 +19,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
+// This class implemented by Baran İşci 200709054
 public class LookingAdvertsActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigation;
@@ -35,7 +35,6 @@ public class LookingAdvertsActivity extends AppCompatActivity {
         listViewAdverts = findViewById(R.id.listViewAdverts);
         db = FirebaseFirestore.getInstance();
 
-        // Firebase'den verileri çek ve AdvertAdapter'a ilet
         fetchAdverts();
 
 
@@ -71,17 +70,17 @@ public class LookingAdvertsActivity extends AppCompatActivity {
                     ArrayList<HashMap<String, Object>> advertsList = new ArrayList<>();
 
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                        // Her bir ilanın verilerini al ve liste ye ekle
+
                         HashMap<String, Object> advert = new HashMap<>(document.getData());
                         advertsList.add(advert);
                     }
 
-                    // AdvertAdapter'ı oluştur ve ListView'a bağla
+
                     advertAdapter = new AdvertAdapter(this, R.layout.item_advert, advertsList);
                     listViewAdverts.setAdapter(advertAdapter);
                 })
                 .addOnFailureListener(e -> {
-                    // Hata durumunda kullanıcıyı bilgilendir
+
                     Toast.makeText(this, "Error fetching adverts: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }

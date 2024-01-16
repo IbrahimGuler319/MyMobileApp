@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
+// This class implemented by İbrahim Güler 200709065
 public class MainActivity extends AppCompatActivity {
 
     private Button btnSignUp, btnLogin;

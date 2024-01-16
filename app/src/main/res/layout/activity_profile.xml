@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--This xml implemented by Baran İşci 200709054-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/turquoise">
+    android:background="#F2F2F2">
 
     <TextView
         android:id="@+id/textView2"
@@ -13,84 +14,96 @@
         android:layout_marginTop="74dp"
         android:layout_marginBottom="16dp"
         android:text="Edit Profile"
-        android:textColor="#000000"
+        android:textColor="#333333"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextUsername"
-        app:layout_constraintStart_toStartOf="@+id/editTextUsername"
+        app:layout_constraintBottom_toTopOf="@+id/textInputUsername"
+        app:layout_constraintStart_toStartOf="@+id/textInputUsername"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextUsername"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputUsername"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/turquoise"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="text"
-        android:textColor="#F6EFEF"
-        android:textColorHint="#F6EFEF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextName"
+        app:layout_constraintBottom_toTopOf="@+id/textInputName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
-    <EditText
-        android:id="@+id/editTextName"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputSurname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputUsername">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputSurname"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/turquoise"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="text"
-        android:textColor="#F6EFEF"
-        android:textColorHint="#F6EFEF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextSurname"
+        app:layout_constraintBottom_toTopOf="@+id/textInputAge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputName">
 
-    <EditText
-        android:id="@+id/editTextSurname"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/turquoise"
-        android:ems="10"
-        android:hint="Surname"
-        android:inputType="text"
-        android:textColor="#F6EFEF"
-        android:textColorHint="#F6EFEF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextAge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSurname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Surname"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/editTextAge"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputAge"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="20dp"
-        android:background="@color/turquoise"
-        android:ems="10"
-        android:hint="Age"
-        android:inputType="text"
-        android:textColor="#F6EFEF"
-        android:textColorHint="#F6EFEF"
         app:layout_constraintBottom_toTopOf="@+id/textViewHandLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSurname" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputSurname">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Location"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
     <!-- Hand Seçenekleri -->
     <TextView
         android:id="@+id/textViewHandLabel"
@@ -100,43 +113,43 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="37dp"
         android:text="Hand prefer: "
-        android:textColor="#FFFFFF"
+        android:textColor="#333333"
         app:layout_constraintBottom_toTopOf="@+id/textViewFootLabel"
         app:layout_constraintEnd_toStartOf="@+id/radioGroupHand"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputAge" />
 
     <RadioGroup
         android:id="@+id/radioGroupHand"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="39dp"
+        android:layout_marginEnd="38dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewHandLabel"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAge">
+        app:layout_constraintTop_toBottomOf="@+id/textInputAge">
 
         <RadioButton
             android:id="@+id/radioButtonLeftHand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Left"
-            android:textColor="#FFFFFF" />
+            android:textColor="#333333" />
 
         <RadioButton
             android:id="@+id/radioButtonRightHand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Right"
-            android:textColor="#FFFFFF" />
+            android:textColor="#333333" />
 
         <RadioButton
             android:id="@+id/radioButtonBothHand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Both"
-            android:textColor="#FFFFFF" />
+            android:textColor="#333333" />
     </RadioGroup>
 
     <!-- Foot Seçenekleri -->
@@ -146,9 +159,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="37dp"
+        android:layout_marginBottom="38dp"
         android:text="Foot prefer: "
-        android:textColor="#FFFFFF"
+        android:textColor="#333333"
         app:layout_constraintBottom_toTopOf="@+id/textViewSportLabel"
         app:layout_constraintEnd_toStartOf="@+id/radioGroupFoot"
         app:layout_constraintStart_toStartOf="parent"
@@ -170,21 +183,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Left"
-            android:textColor="#FFFFFF" />
+            android:textColor="#333333" />
 
         <RadioButton
             android:id="@+id/radioButtonRightFoot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Right"
-            android:textColor="#FFFFFF" />
+            android:textColor="#333333" />
 
         <RadioButton
             android:id="@+id/radioButtonBothFoot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Both"
-            android:textColor="#FFFFFF" />
+            android:textColor="#333333" />
     </RadioGroup>
 
     <TextView
@@ -194,7 +207,7 @@
         android:layout_marginBottom="46dp"
         android:gravity="center"
         android:text="Which sports do you play?"
-        android:textColor="#FFFFFF"
+        android:textColor="#333333"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -217,7 +230,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginBottom="12dp"
             android:text="Football"
-            android:textColor="#FFFFFF" />
+            android:textColor="#333333" />
 
         <CheckBox
             android:id="@+id/checkBoxBasketball"
@@ -226,7 +239,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginBottom="12dp"
             android:text="Basketball"
-            android:textColor="#FFFFFF" />
+            android:textColor="#333333" />
 
         <CheckBox
             android:id="@+id/checkBoxVolleyball"
@@ -235,7 +248,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginBottom="12dp"
             android:text="Volleyball"
-            android:textColor="#FFFFFF" />
+            android:textColor="#333333" />
     </LinearLayout>
 
     <LinearLayout
@@ -255,7 +268,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginBottom="12dp"
             android:text="Golf"
-            android:textColor="#FFFFFF" />
+            android:textColor="#333333" />
 
         <CheckBox
             android:id="@+id/checkBoxBadminton"
@@ -264,7 +277,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginBottom="12dp"
             android:text="Badminton"
-            android:textColor="#FFFFFF" />
+            android:textColor="#333333" />
 
         <CheckBox
             android:id="@+id/checkBoxTennis"
@@ -273,7 +286,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginBottom="12dp"
             android:text="Tennis"
-            android:textColor="#FFFFFF" />
+            android:textColor="#333333" />
     </LinearLayout>
 
     <Button
@@ -284,8 +297,7 @@
         android:gravity="center"
         android:text="Edit Profile"
         android:textAllCaps="false"
-        android:textColor="#1B5D71"
-        app:backgroundTint="#FFFFFF"
+        app:backgroundTint="#1B5D71"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

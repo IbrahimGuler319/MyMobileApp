@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!--This xml implemented by İbrahim Güler 200709065-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
@@ -11,19 +11,14 @@
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="42dp"
         android:background="#3498db"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/givingAdvert"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_back" />
 
         <TextView
             android:id="@+id/advertsMenu"
@@ -42,8 +37,8 @@
         android:id="@+id/givingAdvert"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="#3498db"
+        android:layout_marginBottom="35dp"
+        android:backgroundTint="#1B5D71"
         android:text="Give an Advert"
         android:textColor="#ffffff"
         android:textSize="16sp"
@@ -56,11 +51,12 @@
         android:id="@+id/lookingAdvert"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="#3498db"
+        android:layout_marginBottom="422dp"
+        android:backgroundTint="#1B5D71"
         android:text="Look for an Advert"
         android:textColor="#ffffff"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/givingAdvert" />
@@ -73,8 +69,8 @@
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lookingAdvert"
         app:menu="@menu/bottom_navigation_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
