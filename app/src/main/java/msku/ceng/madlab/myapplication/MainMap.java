@@ -15,6 +15,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.HashMap;
 
 import msku.ceng.madlab.myapplication.R;
 
@@ -22,16 +26,25 @@ public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap gMap;
     private BottomNavigationView bottomNavigation;
+    private FirebaseFirestore db;
+    private HashMap<String, double[]> cities = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_map);
-
+        db = FirebaseFirestore.getInstance();
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.id_map);
         mapFragment.getMapAsync(this);
 
         bottomNavigation = findViewById(R.id.bottomNavigation);
+        cities.put("Eskisehir", new double[]{39.766193, 30.526714});
+        cities.put("Istanbul", new double[]{41.015137, 28.979530});
+        cities.put("Ankara", new double[]{39.925533, 32.866287});
+        cities.put("Izmir", new double[]{38.423733, 27.142826});
+        cities.put("Mugla", new double[]{37.22, 28.37});
+        cities.put("Kocaeli", new double[]{40.766666, 29.916668});
+        cities.put("Antalya", new double[]{36.884804, 30.704044});
 
         bottomNavigation.setOnNavigationItemSelectedListener(item -> {
             int itemId = item.getItemId();
@@ -53,12 +66,32 @@ public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
                 return false;
             }
         });
+
     }
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-        LatLng location = new LatLng(55.6761, 12.5683);
-        googleMap.addMarker(new MarkerOptions().position(location).title("Copenhagen"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 12));
+        db.collection("users")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()){
+                        for (QueryDocumentSnapshot user : task.getResult()){
+                            String username = user.getString("Username");
+                            String city = user.getString("Location");
+                            if (cities.containsKey(city)){
+                                double[] coordinates = cities.get(city);
+                                LatLng location = new LatLng (coordinates[0], coordinates[1]);
+                                googleMap.addMarker(new MarkerOptions().position(location).title(city +" " + username));
+
+                            } else{
+
+                            }
+                        }
+                        LatLng defaultLocation = new LatLng(41.015137, 28.979530);
+                        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 8));
+                    }else{
+
+                    }
+                });
     }
 }
