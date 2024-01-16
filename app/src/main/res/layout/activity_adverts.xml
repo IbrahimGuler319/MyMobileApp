@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F2F2F2">
 
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="15dp"
-        android:background="#1B5D71"
+        android:layout_height="56dp"
+        android:background="#3498db"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/givingAdvert"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,19 +21,20 @@
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            tools:src="@drawable/ic_back" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:id="@+id/advertsMenu"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="8"
-            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="Adverts Menu"
-            android:textColor="#E8E6D7" />
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -41,11 +43,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="#1B5D71"
-        android:backgroundTint="#1B5D71"
-        android:text="Give an advert"
-        android:textAlignment="textStart"
-        app:backgroundTint="#1B5D71"
+        android:background="#3498db"
+        android:text="Give an Advert"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/lookingAdvert"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,43 +57,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="#1B5D71"
-        android:text="Look for an advert"
-        android:textAlignment="textStart"
-        android:textColor="#FFFFFF"
-        app:backgroundTint="#1B5D71"
-        app:layout_constraintBottom_toTopOf="@+id/yourAdverts"
+        android:background="#3498db"
+        android:text="Look for an Advert"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/givingAdvert" />
-
-    <Button
-        android:id="@+id/yourAdverts"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="#1B5D71"
-        android:text="Your adverts"
-        android:textAlignment="textStart"
-        app:backgroundTint="#1B5D71"
-        app:layout_constraintBottom_toTopOf="@+id/referencedAdverts"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lookingAdvert" />
-
-    <Button
-        android:id="@+id/referencedAdverts"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="436dp"
-        android:background="#1B5D71"
-        android:text="Referenced Adverts"
-        android:textAlignment="textStart"
-        app:backgroundTint="#1B5D71"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yourAdverts" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
@@ -107,3 +78,4 @@
         app:menu="@menu/bottom_navigation_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -1,56 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#F2F2F2">
 
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Give an Advert"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"/>
+        android:layout_marginBottom="40dp"
+        android:textColor="#333333"/>
 
-    <EditText
-        android:id="@+id/editTextAdvertContent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputAdvertContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Your Advert Content"
         android:layout_below="@id/textViewTitle"
-        android:layout_marginTop="40dp"
-        android:inputType="textMultiLine"/>
+        android:layout_marginTop="24dp">
 
-    <EditText
-        android:id="@+id/editTextTime"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextAdvertContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your Advert Content"
+            android:inputType="textMultiLine"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Time"
-        android:layout_below="@id/editTextAdvertContent"
-        android:layout_marginTop="40dp"
-        android:inputType="text"/>
+        android:layout_below="@id/textInputAdvertContent"
+        android:layout_marginTop="24dp">
 
-    <EditText
-        android:id="@+id/editTextAddress"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Time"
+            android:inputType="text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Address"
-        android:layout_below="@id/editTextTime"
-        android:layout_marginTop="40dp"
-        android:inputType="text"/>
+        android:layout_below="@id/textInputTime"
+        android:layout_marginTop="24dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:inputType="text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextAddress"
+        android:layout_below="@id/textInputAddress"
         android:layout_marginTop="40dp"
-        android:text="Give advert"
+        android:text="Give Advert"
         android:textAllCaps="false"
-        android:backgroundTint="@color/turquoise"/>
+        android:backgroundTint="#3498db"/>
 
 </RelativeLayout>

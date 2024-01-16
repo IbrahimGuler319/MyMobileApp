@@ -39,8 +39,8 @@ public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
             if (itemId == R.id.action_profile) {
                 startActivity(new Intent(MainMap.this, Profile.class));
                 return true;
-            } else if (itemId == R.id.action_message) {
-                startActivity(new Intent(MainMap.this, Message.class));
+            } else if (itemId == R.id.action_home) {
+                startActivity(new Intent(MainMap.this, MainMap.class));
                 return true;
             } else if (itemId == R.id.action_advert) {
                 startActivity(new Intent(MainMap.this, Adverts.class));

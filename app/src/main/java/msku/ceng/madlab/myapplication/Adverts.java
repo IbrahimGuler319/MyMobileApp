@@ -26,8 +26,6 @@ public class Adverts extends AppCompatActivity {
         advertsMenu = findViewById(R.id.advertsMenu);
         givingAdvert = findViewById(R.id.givingAdvert);
         lookingAdvert = findViewById(R.id.lookingAdvert);
-        yourAdverts = findViewById(R.id.givingAdvert);
-        referencedAdverts = findViewById(R.id.referencedAdverts);
         topBar = findViewById(R.id.topBar);
 
         givingAdvert.setOnClickListener(new View.OnClickListener() {
@@ -49,8 +47,8 @@ public class Adverts extends AppCompatActivity {
             if (itemId == R.id.action_profile) {
                 startActivity(new Intent(Adverts.this, Profile.class));
                 return true;
-            } else if (itemId == R.id.action_message) {
-                startActivity(new Intent(Adverts.this, Message.class));
+            } else if (itemId == R.id.action_home) {
+                startActivity(new Intent(Adverts.this, MainMap.class));
                 return true;
             } else if (itemId == R.id.action_advert) {
                 // Bu sayfa zaten Adverts, başka bir aktiviteye geçmeye gerek yok.

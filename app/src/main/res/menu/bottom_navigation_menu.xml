@@ -5,9 +5,9 @@
         android:icon="@drawable/ic_profile"
         android:title="Profile"/>
     <item
-        android:id="@+id/action_message"
-        android:icon="@drawable/ic_message"
-        android:title="Message"/>
+        android:id="@+id/action_home"
+        android:icon="@drawable/home"
+        android:title="Home"/>
     <item
         android:id="@+id/action_advert"
         android:icon="@drawable/ic_advert"

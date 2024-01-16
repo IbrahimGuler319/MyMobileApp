@@ -3,4 +3,6 @@
     <drawable name="app_logo" />
     <drawable name="futbol_topu" />
     <drawable name="kupa_resmi" />
+    <drawable name="custom_divider" />
+    <drawable name="listview_background" />
 </resources>

@@ -100,8 +100,8 @@ public class Profile extends AppCompatActivity {
 
             if (itemId == R.id.action_profile) {
                 return true;
-            } else if (itemId == R.id.action_message) {
-                startActivity(new Intent(Profile.this, Message.class));
+            } else if (itemId == R.id.action_home) {
+                startActivity(new Intent(Profile.this, MainMap.class));
                 return true;
             } else if (itemId == R.id.action_advert) {
                 startActivity(new Intent(Profile.this, Adverts.class));
