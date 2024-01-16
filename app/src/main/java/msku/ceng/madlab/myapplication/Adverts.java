@@ -36,6 +36,12 @@ public class Adverts extends AppCompatActivity {
                 startActivity(new Intent(Adverts.this, GivingAdvertActivity.class));
             }
         });
+        lookingAdvert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Adverts.this, LookingAdvertsActivity.class));
+            }
+        });
         bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.setOnNavigationItemSelectedListener(item -> {
             int itemId = item.getItemId();
