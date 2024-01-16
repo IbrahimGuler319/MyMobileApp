@@ -137,7 +137,7 @@ public class Register extends AppCompatActivity {
                                             user.put("Email", txtEmail);
                                             user.put("Name", txtName);
                                             user.put("Surname", txtSurname);
-                                            user.put("Age", txtAge);
+                                            user.put("Location", txtAge);
                                             user.put("Password", txtPassword);
                                             user.put("HandPreference", selectedHand); // Hand preference'ı ekle
                                             user.put("FootPreference", selectedFoot); // Foot preference'ı ekle

@@ -68,6 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+
     <EditText
         android:id="@+id/editTextAge"
         android:layout_width="0dp"
@@ -75,12 +76,12 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
-        android:hint="AGE"
-        android:textColorHint="#959595"
+        android:hint="LOCATİON"
         android:inputType="text"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#FFFFFF"
+        android:textColorHint="#959595"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSurname" />

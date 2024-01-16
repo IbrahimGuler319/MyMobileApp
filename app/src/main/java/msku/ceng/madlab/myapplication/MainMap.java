@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -78,19 +79,21 @@ public class MainMap extends AppCompatActivity implements OnMapReadyCallback {
                         for (QueryDocumentSnapshot user : task.getResult()){
                             String username = user.getString("Username");
                             String city = user.getString("Location");
+                            Log.d("MainMap", "username: " + username);
+                            Log.d("MainMap", "location: " + city);
+
                             if (cities.containsKey(city)){
                                 double[] coordinates = cities.get(city);
-                                LatLng location = new LatLng (coordinates[0], coordinates[1]);
-                                googleMap.addMarker(new MarkerOptions().position(location).title(city +" " + username));
-
-                            } else{
-
+                                LatLng location = new LatLng(coordinates[0], coordinates[1]);
+                                googleMap.addMarker(new MarkerOptions().position(location).title(username));
+                            } else {
+                                Log.d("MainMap", "City not found in the 'cities' HashMap for user: " + username);
                             }
                         }
                         LatLng defaultLocation = new LatLng(41.015137, 28.979530);
-                        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 8));
-                    }else{
-
+                        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 6));
+                    } else {
+                        Log.e("MainMap", "Error getting documents: ", task.getException());
                     }
                 });
     }
